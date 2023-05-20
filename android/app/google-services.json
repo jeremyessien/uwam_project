@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "30591032795",
+    "project_id": "uwam-ec46a",
+    "storage_bucket": "uwam-ec46a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30591032795:android:c227dc3f26ce4950be5bfe",
+        "android_client_info": {
+          "package_name": "com.example.uwam_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30591032795-1uh9hdt1q21ggivfbs7ickilcm3b4icn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGfgo6nGu_rBVcO-O9B2bGQIGSlmgl6Lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30591032795-1uh9hdt1q21ggivfbs7ickilcm3b4icn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "30591032795-e6bq2cuh0dkuf05febqu75hef49uflvb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.uwamProject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
