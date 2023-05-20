@@ -1,8 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:uwam_project/firebase_options.dart';
 import 'package:uwam_project/splashscreen.dart';
-import 'auth/sigunp.dart';
+import 'package:uwam_project/user_logged_in.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +22,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      //This checks if the user has previously logged into the app
+      home: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) => userLoggedIn(context, snapshot),
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
