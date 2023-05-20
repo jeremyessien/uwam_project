@@ -30,7 +30,8 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   Future<void> navigateToLogin() async {
-    await Future.delayed(const Duration(seconds: 5)); // Change the duration as desired
+    await Future.delayed(
+        const Duration(seconds: 5)); // Change the duration as desired
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => LoginPage()),
@@ -75,5 +76,3 @@ class _SplashScreenState extends State<SplashScreen>
     );
   }
 }
-
-

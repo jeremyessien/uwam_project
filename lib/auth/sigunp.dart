@@ -15,8 +15,10 @@ class SignupPage extends StatelessWidget {
   Future<void> _handleSignup() async {
     String email = emailController.text;
     String password = passwordController.text;
+    String firstName = firstNameController.text;
+    String lastName = lastNameController.text;
 
-    User? user = await _authService.signUp(email, password);
+    User? user = await _authService.signUp(email, password, firstName, lastName);
     if (user != null) {
       // User registration successful
       // Add additional logic or navigation here

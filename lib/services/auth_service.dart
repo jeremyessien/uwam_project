@@ -6,16 +6,18 @@ class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirestoreService _firestoreService = FirestoreService();
 
-
-  Future<User?> signUp(String email, String password, String firstName, String lastName) async {
+  Future<User?> signUp(
+      String email, String password, String firstName, String lastName) async {
     try {
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
       User? user = userCredential.user;
       if (user != null) {
-        await _firestoreService.createUserDocument(user.uid, firstName, lastName);
+        await _firestoreService.createUserDocument(
+            user.uid, firstName, lastName);
       }
       return userCredential.user;
     } catch (e) {
