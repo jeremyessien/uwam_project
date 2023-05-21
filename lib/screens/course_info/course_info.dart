@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'course_details_page.dart';
+
 class CourseInformationPage extends StatefulWidget {
   const CourseInformationPage({Key? key}) : super(key: key);
 
@@ -110,9 +112,35 @@ class _CourseInformationPageState extends State<CourseInformationPage> {
       print('Department: $_selectedDepartment');
       print('Year: $_selectedYear');
       print('Semester: $_selectedSemester');
-      // TODO: Implement fetching and displaying course information
-    } else {
-      // TODO: Show an error message indicating that all fields are required
+      if (_selectedDepartment != null &&
+          _selectedYear != null &&
+          _selectedSemester != null) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CourseDetailsPage(
+              department: _selectedDepartment ?? '',
+              year: _selectedYear ?? '',
+              semester: _selectedSemester ?? '',
+            ),
+          ),
+        );
+      } else {
+        // Handle the case when one or more of the selections is null
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Error'),
+            content: Text('Please select a department, year, and semester.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }
     }
   }
 }

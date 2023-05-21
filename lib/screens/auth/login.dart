@@ -73,18 +73,17 @@ class _LoginPageState extends State<LoginPage> {
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 16.0),
-              const Center(
-                child: Text(
-                  'Login',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+              Text(
+                'Welcome back',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
+              Text('Input your details below to log in'),
               const SizedBox(height: 32.0),
               TextField(
                 controller: emailController,
@@ -146,20 +145,28 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               const SizedBox(height: 16.0),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignupPage()),
-                  );
-                },
-                child: Text(
-                  "Don't have an account? Signup here",
-                  style: TextStyle(
-                    color: Colors.deepPurpleAccent.shade100,
-// decoration: TextDecoration.underline,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Don't have an account?",
                   ),
-                ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignupPage()),
+                      );
+                    },
+                    child: Text(
+                       " Signup here",
+                      style: TextStyle(
+                        color: Colors.deepPurpleAccent.shade100,
+// decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

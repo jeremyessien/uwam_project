@@ -5,7 +5,6 @@ import 'package:uwam_project/screens/home_screen.dart';
 import '../../services/auth_service.dart';
 
 class SignupPage extends StatefulWidget {
-
   SignupPage({super.key});
 
   @override
@@ -108,19 +107,23 @@ class _SignupPageState extends State<SignupPage> {
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 50.0),
-              const Center(
-                child: Text(
-                  'Signup Here',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.w400,
-                  ),
+              Text(
+                'Hello, let us know you',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 32.0),
+              Text(
+                'Fill in your details to get started',
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              const SizedBox(height: 40.0),
               TextField(
                 controller: firstNameController,
                 decoration: InputDecoration(
@@ -208,20 +211,28 @@ class _SignupPageState extends State<SignupPage> {
                 ),
               ),
               const SizedBox(height: 16.0),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
-                  );
-                },
-                child: Text(
-                  "Already have an account? Login here",
-                  style: TextStyle(
-                    color: Colors.deepPurpleAccent.shade100,
-                    // decoration: TextDecoration.underline,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Already have an account? ",
                   ),
-                ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      );
+                    },
+                    child: Text(
+                      "Login here",
+                      style: TextStyle(
+                        color: Colors.deepPurpleAccent.shade100,
+                        // decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

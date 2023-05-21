@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:uwam_project/firebase_options.dart';
+import 'package:uwam_project/screens/auth/welcome_page.dart';
+import 'package:uwam_project/screens/home_screen.dart';
 import 'package:uwam_project/splashscreen.dart';
 import 'package:uwam_project/user_logged_in.dart';
 
@@ -25,7 +27,13 @@ class MyApp extends StatelessWidget {
       //This checks if the user has previously logged into the app
       home: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) => userLoggedIn(context, snapshot),
+        builder: (context, snapshot){
+          if(snapshot.connectionState == ConnectionState.waiting) {
+            return SplashScreen();
+          } else {
+            return snapshot.hasData ? HomeScreen() : WelcomeScreen();
+          }
+        },
       ),
       debugShowCheckedModeBanner: false,
     );

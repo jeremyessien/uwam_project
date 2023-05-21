@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:uwam_project/screens/academic_calendar/academic_calendar.dart';
 import 'package:uwam_project/screens/auth/login.dart';
-import 'package:uwam_project/screens/course_info.dart';
+import 'package:uwam_project/screens/course_info/course_info.dart';
 import '../services/auth_service.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,22 +30,33 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Home'),
         actions: [
-          IconButton(
+          TextButton(
             onPressed: _handleLogout,
-            icon: const Icon(Icons.logout),
+            child: Text('Logout'),
           ),
         ],
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            TextButton(onPressed: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CourseInformationPage()),
-              );
-            }, child: Text('Course Info'))
-          ],
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              TextButton(onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CourseInformationPage()),
+                );
+              }, child: Text('Course Info')),
+
+
+              TextButton(onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AcademicCalendarPage()),
+                );
+              }, child: Text('Academic Calendar'))
+            ],
+          ),
         )
       ),
     );
