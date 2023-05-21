@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uwam_project/screens/auth/login.dart';
+import 'package:uwam_project/screens/course_info.dart';
 import '../services/auth_service.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -34,8 +35,17 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: Center(
-        child: Text('Welcome'),
+      body: SafeArea(
+        child: Column(
+          children: [
+            TextButton(onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CourseInformationPage()),
+              );
+            }, child: Text('Course Info'))
+          ],
+        )
       ),
     );
   }

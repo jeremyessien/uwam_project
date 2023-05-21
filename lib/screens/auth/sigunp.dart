@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:uwam_project/screens/auth/login.dart';
 import 'package:uwam_project/screens/home_screen.dart';
 import '../../services/auth_service.dart';
 
@@ -208,7 +209,12 @@ class _SignupPageState extends State<SignupPage> {
               ),
               const SizedBox(height: 16.0),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                },
                 child: Text(
                   "Already have an account? Login here",
                   style: TextStyle(
