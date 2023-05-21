@@ -22,10 +22,10 @@ class AcademicCalendarPage extends StatelessWidget {
             Expanded(
               child: ListView(
                 children: [
-                  _buildCalendarItem('Aug 21-22', 'Orientation'),
-                  _buildCalendarItem('Sep 3', 'Semester Begins'),
-                  _buildCalendarItem('Dec 17-23', 'Examination Period'),
-                  _buildCalendarItem('Dec 24 - Jan 2', 'Christmas Break'),
+                  _buildCalendarItem('Monday, 8th May 2023 -', 'Commencement of 2nd Semester 2021/2022\nSession for all students and registration'),
+                  _buildCalendarItem('Monday, 8th May - Friday, 26th May, 2023', 'Registration without penalty (3 weeks)'),
+                  _buildCalendarItem('Monday 8th May - Friday 28th, July 2023', 'Lectures for all students (12 weeks)'),
+                  _buildCalendarItem('Monday 14th Aug - Friday 1st September 2023', '2nd Semester Examinations for all students (3 weeks)'),
                   // Add more calendar items here
                 ],
               ),
@@ -38,7 +38,7 @@ class AcademicCalendarPage extends StatelessWidget {
 
   Widget _buildCalendarItem(String timeframe, String title) {
     return ListTile(
-      title: Text(timeframe),
+      title: Text(timeframe, style: TextStyle(fontWeight: FontWeight.bold),),
       subtitle: Text(title),
     );
   }
